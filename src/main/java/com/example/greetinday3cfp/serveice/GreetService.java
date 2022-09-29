@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
@@ -30,4 +31,28 @@ public class GreetService {
     return rep.save(newGreeting);
 
     }
+//    public Greeting userPost(Greeting greeting){
+//        rep.save(greeting);
+//        return greeting;
+//    }
+    public List<Greeting> getDatacontent(){
+        return rep.findAll();
+
+    }
+    public Greeting getByIdD(Integer id){
+        return rep.findAll().get(id);
+    }
+
+    public void deleteId(Integer id){
+        rep.deleteById(id);
+    }
+    public Greeting editByUSer(Integer id, Greeting greetingModel) {
+        Greeting greetingModel1 = rep.findById(id).orElse(null);
+        if(greetingModel1 != null){
+            greetingModel1.setContent(greetingModel.getContent());
+            return rep.save(greetingModel1);
+        }
+        return null;
+    }
+
 }

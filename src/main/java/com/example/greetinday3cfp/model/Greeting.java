@@ -18,14 +18,6 @@ public class Greeting {
 
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getContent() {
         return content;
     }
@@ -38,9 +30,6 @@ public class Greeting {
         super();
         this.id = id;
         this.content = content;
-    }
-    public Greeting(Greeting greeting){
-        this.content = greeting.content;
     }
     public Greeting(String message){
         this.content = message;
